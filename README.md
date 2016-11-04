@@ -42,6 +42,42 @@ upperCasify(object);
 
 lowerCasify(object);
 //=> { 'first name': 'John', 'last name': 'Smith' }
+
+const array = [
+  { tv_show: 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }, 
+  { tv_show: 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' }, 
+  { tv_show: 'Mad Men', 'Actor Name': 'Jon Hamm' }, 
+];
+
+camelCasify(array);
+//=> 0: { tvShow: 'Malcom in the Middle', actorName: 'Frankie Muniz' }
+//=> 1: { tvShow: 'Breaking Bad', actorName: 'Bryan Cranston' }
+//=> 2: { tvShow: 'Mad Men', actorName: 'Jon Hamm' }
+
+kebabCasify(array);
+//=> 0: { 'tv-show': 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }
+//=> 1: { 'tv-show': 'Breaking Bad', 'actor-name': 'Bryan Cranston' }
+//=> 2: { 'tv-show': 'Mad Men', 'actor-name': 'Jon Hamm' }
+
+snakeCasify(array);
+//=> 0: { tv_show: 'Malcom in the Middle', actor_name: 'Frankie Muniz' }
+//=> 1: { tv_show: 'Breaking Bad', actor_name: 'Bryan Cranston' }
+//=> 2: { tv_show: 'Mad Men', actor_name: 'Jon Hamm' }
+
+startCasify(array);
+//=> 0: { 'Tv Show': 'Malcom in the Middle', 'Actor Name': 'Frankie Muniz' }
+//=> 1: { 'Tv Show': 'Breaking Bad', 'Actor Name': 'Bryan Cranston' }
+//=> 2: { 'Tv Show': 'Mad Men', 'Actor Name': 'Jon Hamm' }
+
+upperCasify(array);
+//=> 0: { 'TV SHOW': 'Malcom in the Middle', 'ACTOR NAME': 'Frankie Muniz' }
+//=> 1: { 'TV SHOW': 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' }
+//=> 2: { 'TV SHOW': 'Mad Men', 'ACTOR NAME': 'Jon Hamm' }
+
+lowerCasify(array);
+//=> 0: { 'tv show': 'Malcom in the Middle', 'actor name': 'Frankie Muniz' }
+//=> 1: { 'tv show': 'Breaking Bad', 'actor name': 'Bryan Cranston' }
+//=> 2: { 'tv show': 'Mad Men', 'actor name': 'Jon Hamm' }
 ```
 
 
