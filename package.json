@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run build && ava",
     "build": "mkdir -p dist && babel index.js --out-file dist/index.js",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
