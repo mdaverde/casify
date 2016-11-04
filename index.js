@@ -9,9 +9,7 @@ import uppercase from 'lodash.uppercase';
 import lowercase from 'lodash.lowercase';
 
 function casifyObject(caseFn, obj) {
-  return mapKeys(obj, (value, key) => {
-    return caseFn(key);
-  });
+  return mapKeys(obj, (value, key) => caseFn(key));
 }
 
 function casifyArray(caseFn, array) {
