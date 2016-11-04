@@ -1,5 +1,4 @@
 import map from 'lodash.map';
-import isArray from 'lodash.isarray';
 import mapKeys from 'lodash.mapkeys';
 import camelCase from 'lodash.camelcase';
 import kebabCase from 'lodash.kebabcase';
@@ -17,7 +16,7 @@ function casifyArray(caseFn, array) {
 }
 
 function casify(caseFn, collection) {
-  if (isArray(collection)) casifyArray(caseFn, collection);
+  if (Array.isArray(collection)) return casifyArray(caseFn, collection);
   return casifyObject(caseFn, collection);
 }
 

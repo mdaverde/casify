@@ -9,7 +9,9 @@ import {
   lowerCasify,
 } from './dist';
 
-function generateVarietyObj(obj, fn, re) {
+// Test Utils
+
+function generateObject(obj, fn, re) {
   return {
     snake_case: true,
     'kebab-case': 1000,
@@ -17,19 +19,31 @@ function generateVarietyObj(obj, fn, re) {
     StartCase: obj,
     'UPPER CASE': fn,
     'lower case': re,
- };
+  };
 }
+
+function generateArray() {
+  return [
+    { cat_name: 'Max', 'dog name': 'Jellybean', 'NUM PETS': 36 },
+    { cat_name: 'Leo', 'dog name': 'Archer', 'NUM PETS': 5 },
+    { cat_name: 'Dalton', 'dog name': 'Skip', 'NUM PETS': 18 },
+  ];
+}
+
 
 function prependBlueCase(string) {
   return `blue_${string}`;
 }
+
+
+// Tests
 
 test('camelCasify - handles objects', (context) => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     snakeCase: true,
@@ -50,7 +64,7 @@ test('kebabCasify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     'snake-case': true,
@@ -71,7 +85,7 @@ test('snakeCasify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     snake_case: true,
@@ -92,7 +106,7 @@ test('startCasify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     'Snake Case': true,
@@ -113,7 +127,7 @@ test('upperCasify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     'SNAKE CASE': true,
@@ -134,7 +148,7 @@ test('lowerCasify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     'snake case': true,
@@ -155,7 +169,7 @@ test('casify - handles objects', (context) => {
   const fn = () => {};
   const re = /casify/ig;
 
-  const input = generateVarietyObj(obj, fn, re);
+  const input = generateObject(obj, fn, re);
 
   const expected = {
     blue_snake_case: true,
@@ -167,6 +181,21 @@ test('casify - handles objects', (context) => {
   };
 
   const observed = casify(prependBlueCase, input);
+
+  context.deepEqual(expected, observed);
+});
+
+
+test('camelCasify - handles arrays', (context) => {
+  const input = generateArray();
+
+  const expected = [
+    { catName: 'Max', dogName: 'Jellybean', numPets: 36 },
+    { catName: 'Leo', dogName: 'Archer', numPets: 5 },
+    { catName: 'Dalton', dogName: 'Skip', numPets: 18 },
+  ];
+
+  const observed = camelCasify(input);
 
   context.deepEqual(expected, observed);
 });
