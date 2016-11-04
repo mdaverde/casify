@@ -1,6 +1,6 @@
 {
   "name": "casify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Converts object keys or array of objects' keys to different case styles",
   "main": "dist/index.js",
   "scripts": {
