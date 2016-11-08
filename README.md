@@ -1,6 +1,6 @@
 # casify [![Build Status](https://travis-ci.org/milanlandaverde/casify.svg?branch=master)](https://travis-ci.org/milanlandaverde/casify)
 
-> Converts object keys or array of objects' keys to different case styles
+> Converts object keys or array of objects' keys to different case styles. Immutable.
 
 ## Install
 
@@ -44,9 +44,9 @@ lowerCasify(object);
 //=> { 'first name': 'John', 'last name': 'Smith' }
 
 const array = [
-  { tv_show: 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }, 
-  { tv_show: 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' }, 
-  { tv_show: 'Mad Men', 'Actor Name': 'Jon Hamm' }, 
+  { tv_show: 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' },
+  { tv_show: 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' },
+  { tv_show: 'Mad Men', 'Actor Name': 'Jon Hamm' },
 ];
 
 camelCasify(array);
