@@ -13,6 +13,7 @@ $ npm install --save casify
 ```js
 const {
   camelCasify,
+  bumpyCasify,
   kebabCasify,
   snakeCasify,
   startCasify,
@@ -27,6 +28,9 @@ const object = {
 
 camelCasify(object);
 //=> { firstName: 'John', lastName: 'Smith' }
+
+bumpyCasify(object);
+//=> { FirstName: 'John', LastName: 'Smith' }
 
 kebabCasify(object);
 //=> { 'first-name': 'John', 'last-name': 'Smith' }
@@ -53,6 +57,11 @@ camelCasify(array);
 //=> 0: { tvShow: 'Malcom in the Middle', actorName: 'Frankie Muniz' }
 //=> 1: { tvShow: 'Breaking Bad', actorName: 'Bryan Cranston' }
 //=> 2: { tvShow: 'Mad Men', actorName: 'Jon Hamm' }
+
+bumpyCasify(array);
+//=> 0: { TvShow: 'Malcom in the Middle', ActorName: 'Frankie Muniz' }
+//=> 1: { TvShow: 'Breaking Bad', ActorName: 'Bryan Cranston' }
+//=> 2: { TvShow: 'Mad Men', ActorName: 'Jon Hamm' }
 
 kebabCasify(array);
 //=> 0: { 'tv-show': 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }
