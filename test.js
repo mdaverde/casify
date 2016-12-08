@@ -2,6 +2,7 @@ import test from 'ava';
 import {
   default as casify,
   camelCasify,
+  bumpyCasify,
   kebabCasify,
   snakeCasify,
   startCasify,
@@ -16,7 +17,8 @@ function generateObject(obj, fn, re) {
     snake_case: true,
     'kebab-case': 1000,
     camelCase: 'camelCase',
-    StartCase: obj,
+    BumpyCase: 11.99,
+    'Start Case': obj,
     'UPPER CASE': fn,
     'lower case': re,
   };
@@ -49,12 +51,35 @@ test('camelCasify - handles objects', (context) => {
     snakeCase: true,
     kebabCase: 1000,
     camelCase: 'camelCase',
+    bumpyCase: 11.99,
     startCase: obj,
     upperCase: fn,
     lowerCase: re,
   };
 
   const observed = camelCasify(input);
+
+  context.deepEqual(expected, observed);
+});
+
+test('bumpyCasify - handles objects', (context) => {
+  const obj = {};
+  const fn = () => {};
+  const re = /casify/ig;
+
+  const input = generateObject(obj, fn, re);
+
+  const expected = {
+    SnakeCase: true,
+    KebabCase: 1000,
+    CamelCase: 'camelCase',
+    BumpyCase: 11.99,
+    StartCase: obj,
+    UpperCase: fn,
+    LowerCase: re,
+  };
+
+  const observed = bumpyCasify(input);
 
   context.deepEqual(expected, observed);
 });
@@ -70,6 +95,7 @@ test('kebabCasify - handles objects', (context) => {
     'snake-case': true,
     'kebab-case': 1000,
     'camel-case': 'camelCase',
+    'bumpy-case': 11.99,
     'start-case': obj,
     'upper-case': fn,
     'lower-case': re,
@@ -91,6 +117,7 @@ test('snakeCasify - handles objects', (context) => {
     snake_case: true,
     kebab_case: 1000,
     camel_case: 'camelCase',
+    bumpy_case: 11.99,
     start_case: obj,
     upper_case: fn,
     lower_case: re,
@@ -112,6 +139,7 @@ test('startCasify - handles objects', (context) => {
     'Snake Case': true,
     'Kebab Case': 1000,
     'Camel Case': 'camelCase',
+    'Bumpy Case': 11.99,
     'Start Case': obj,
     'UPPER CASE': fn,
     'Lower Case': re,
@@ -133,6 +161,7 @@ test('upperCasify - handles objects', (context) => {
     'SNAKE CASE': true,
     'KEBAB CASE': 1000,
     'CAMEL CASE': 'camelCase',
+    'BUMPY CASE': 11.99,
     'START CASE': obj,
     'UPPER CASE': fn,
     'LOWER CASE': re,
@@ -154,6 +183,7 @@ test('lowerCasify - handles objects', (context) => {
     'snake case': true,
     'kebab case': 1000,
     'camel case': 'camelCase',
+    'bumpy case': 11.99,
     'start case': obj,
     'upper case': fn,
     'lower case': re,
@@ -175,7 +205,8 @@ test('casify - handles objects', (context) => {
     blue_snake_case: true,
     'blue_kebab-case': 1000,
     blue_camelCase: 'camelCase',
-    blue_StartCase: obj,
+    blue_BumpyCase: 11.99,
+    'blue_Start Case': obj,
     'blue_UPPER CASE': fn,
     'blue_lower case': re,
   };

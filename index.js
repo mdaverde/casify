@@ -6,6 +6,7 @@ import snakeCase from 'lodash.snakecase';
 import startCase from 'lodash.startcase';
 import uppercase from 'lodash.uppercase';
 import lowercase from 'lodash.lowercase';
+import upperfirst from 'lodash.upperfirst';
 
 function casifyObject(caseFn, obj) {
   return mapKeys(obj, (value, key) => caseFn(key));
@@ -24,7 +25,12 @@ function casifyFnFactory(caseFn) {
   return collection => casify(caseFn, collection);
 }
 
+function bumpyCase(input) {
+  return upperfirst(camelCase(input));
+}
+
 export const camelCasify = casifyFnFactory(camelCase);
+export const bumpyCasify = casifyFnFactory(bumpyCase);
 export const kebabCasify = casifyFnFactory(kebabCase);
 export const snakeCasify = casifyFnFactory(snakeCase);
 export const startCasify = casifyFnFactory(startCase);
