@@ -92,4 +92,4 @@ lowerCasify(array);
 
 ## License
 
-MIT © [Marlon Landaverde](http://mml.sexy)
+MIT © [Marlon Landaverde](https://mdaverde.com)
