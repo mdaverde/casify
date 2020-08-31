@@ -11,7 +11,7 @@ $ npm install --save casify
 ## Usage
 
 ```js
-const {
+import {
   camelCasify,
   bumpyCasify,
   kebabCasify,
@@ -19,7 +19,7 @@ const {
   startCasify,
   upperCasify,
   lowerCasify
-} = require('casify');
+} from 'casify';
 
 const object = {
   first_name: 'John',
@@ -105,4 +105,4 @@ lowerCasify(array);
 
 ## License
 
-MIT © [Marlon Landaverde](https://mdaverde.com)
+MIT © [Milan](https://mdaverde.com)

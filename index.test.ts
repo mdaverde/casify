@@ -9,8 +9,7 @@ import {
   lowerCasify,
 } from './dist';
 
-// Test Utils
-
+// Test utils
 function generateObject(obj: object, fn: Function, re: RegExp) {
   return {
     snake_case: true,
