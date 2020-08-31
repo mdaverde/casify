@@ -4,7 +4,7 @@
   "description": "Converts object keys or array of objects' keys to different case styles",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "npm run build && jest",
     "build": "tsc"
   },
   "repository": {
