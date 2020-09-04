@@ -7,7 +7,7 @@
   "scripts": {
     "test": "npm run build && jest",
     "build": "tsc",
-    "prepublish": "npm run test"
+    "prepare": "npm run test"
   },
   "repository": {
     "type": "git",
