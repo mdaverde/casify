@@ -11,7 +11,7 @@ $ npm install --save casify
 ## Usage
 
 ```js
-const {
+import {
   camelCasify,
   bumpyCasify,
   kebabCasify,
@@ -19,7 +19,7 @@ const {
   startCasify,
   upperCasify,
   lowerCasify
-} = require('casify');
+} from 'casify';
 
 const object = {
   first_name: 'John',
@@ -27,25 +27,25 @@ const object = {
 };
 
 camelCasify(object);
-//=> { firstName: 'John', lastName: 'Smith' }
+// { firstName: 'John', lastName: 'Smith' }
 
 bumpyCasify(object);
-//=> { FirstName: 'John', LastName: 'Smith' }
+// { FirstName: 'John', LastName: 'Smith' }
 
 kebabCasify(object);
-//=> { 'first-name': 'John', 'last-name': 'Smith' }
+// { 'first-name': 'John', 'last-name': 'Smith' }
 
 snakeCasify(object);
-//=> { 'first_name': 'John', 'last_name': 'Smith' }
+// { 'first_name': 'John', 'last_name': 'Smith' }
 
 startCasify(object);
-//=> { 'First Name': 'John', 'Last Name': 'Smith' }
+// { 'First Name': 'John', 'Last Name': 'Smith' }
 
 upperCasify(object);
-//=> { 'FIRST NAME': 'John', 'LAST NAME': 'Smith' }
+// { 'FIRST NAME': 'John', 'LAST NAME': 'Smith' }
 
 lowerCasify(object);
-//=> { 'first name': 'John', 'last name': 'Smith' }
+// { 'first name': 'John', 'last name': 'Smith' }
 
 const array = [
   { tv_show: 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' },
@@ -54,42 +54,55 @@ const array = [
 ];
 
 camelCasify(array);
-//=> 0: { tvShow: 'Malcom in the Middle', actorName: 'Frankie Muniz' }
-//=> 1: { tvShow: 'Breaking Bad', actorName: 'Bryan Cranston' }
-//=> 2: { tvShow: 'Mad Men', actorName: 'Jon Hamm' }
+// [
+//   { tvShow: 'Malcom in the Middle', actorName: 'Frankie Muniz' },
+//   { tvShow: 'Breaking Bad', actorName: 'Bryan Cranston' },
+//   { tvShow: 'Mad Men', actorName: 'Jon Hamm' },
+// ]
 
 bumpyCasify(array);
-//=> 0: { TvShow: 'Malcom in the Middle', ActorName: 'Frankie Muniz' }
-//=> 1: { TvShow: 'Breaking Bad', ActorName: 'Bryan Cranston' }
-//=> 2: { TvShow: 'Mad Men', ActorName: 'Jon Hamm' }
+// [
+//   { TvShow: 'Malcom in the Middle', ActorName: 'Frankie Muniz' },
+//   { TvShow: 'Breaking Bad', ActorName: 'Bryan Cranston' },
+//   { TvShow: 'Mad Men', ActorName: 'Jon Hamm' },
+// ]
 
 kebabCasify(array);
-//=> 0: { 'tv-show': 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }
-//=> 1: { 'tv-show': 'Breaking Bad', 'actor-name': 'Bryan Cranston' }
-//=> 2: { 'tv-show': 'Mad Men', 'actor-name': 'Jon Hamm' }
+// [
+//   { 'tv-show': 'Malcom in the Middle', 'actor-name': 'Frankie Muniz' }
+//   { 'tv-show': 'Breaking Bad', 'actor-name': 'Bryan Cranston' }
+//   { 'tv-show': 'Mad Men', 'actor-name': 'Jon Hamm' }
+// ]
 
 snakeCasify(array);
-//=> 0: { tv_show: 'Malcom in the Middle', actor_name: 'Frankie Muniz' }
-//=> 1: { tv_show: 'Breaking Bad', actor_name: 'Bryan Cranston' }
-//=> 2: { tv_show: 'Mad Men', actor_name: 'Jon Hamm' }
+// [
+//   { tv_show: 'Malcom in the Middle', actor_name: 'Frankie Muniz' }
+//   { tv_show: 'Breaking Bad', actor_name: 'Bryan Cranston' }
+//   { tv_show: 'Mad Men', actor_name: 'Jon Hamm' }
+// ]
 
 startCasify(array);
-//=> 0: { 'Tv Show': 'Malcom in the Middle', 'Actor Name': 'Frankie Muniz' }
-//=> 1: { 'Tv Show': 'Breaking Bad', 'Actor Name': 'Bryan Cranston' }
-//=> 2: { 'Tv Show': 'Mad Men', 'Actor Name': 'Jon Hamm' }
+// [
+//   { 'Tv Show': 'Malcom in the Middle', 'Actor Name': 'Frankie Muniz' }
+//   { 'Tv Show': 'Breaking Bad', 'Actor Name': 'Bryan Cranston' }
+//   { 'Tv Show': 'Mad Men', 'Actor Name': 'Jon Hamm' }
+// ]
 
 upperCasify(array);
-//=> 0: { 'TV SHOW': 'Malcom in the Middle', 'ACTOR NAME': 'Frankie Muniz' }
-//=> 1: { 'TV SHOW': 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' }
-//=> 2: { 'TV SHOW': 'Mad Men', 'ACTOR NAME': 'Jon Hamm' }
+// [
+//   { 'TV SHOW': 'Malcom in the Middle', 'ACTOR NAME': 'Frankie Muniz' }
+//   { 'TV SHOW': 'Breaking Bad', 'ACTOR NAME': 'Bryan Cranston' }
+//   { 'TV SHOW': 'Mad Men', 'ACTOR NAME': 'Jon Hamm' }
+// ]
 
 lowerCasify(array);
-//=> 0: { 'tv show': 'Malcom in the Middle', 'actor name': 'Frankie Muniz' }
-//=> 1: { 'tv show': 'Breaking Bad', 'actor name': 'Bryan Cranston' }
-//=> 2: { 'tv show': 'Mad Men', 'actor name': 'Jon Hamm' }
+// [
+//   { 'tv show': 'Malcom in the Middle', 'actor name': 'Frankie Muniz' }
+//   { 'tv show': 'Breaking Bad', 'actor name': 'Bryan Cranston' }
+//   { 'tv show': 'Mad Men', 'actor name': 'Jon Hamm' }
+// ]
 ```
-
 
 ## License
 
-MIT © [Marlon Landaverde](http://mml.sexy)
+MIT © [Milan](https://mdaverde.com)

@@ -8,24 +8,27 @@ import uppercase from 'lodash.uppercase';
 import lowercase from 'lodash.lowercase';
 import upperfirst from 'lodash.upperfirst';
 
-function casifyObject(caseFn, obj) {
+type Collection = Record<any, any>
+type CaseFn = (input: string) => string;
+
+function casifyObject<T>(caseFn: CaseFn, obj: Collection): Collection {
   return mapKeys(obj, (value, key) => caseFn(key));
 }
 
-function casifyArray(caseFn, array) {
+function casifyArray<T>(caseFn: CaseFn, array: Array<T>): Array<T> {
   return map(array, obj => casifyObject(caseFn, obj));
 }
 
-function casify(caseFn, collection) {
+function casify(caseFn: CaseFn, collection: Collection) {
   if (Array.isArray(collection)) return casifyArray(caseFn, collection);
   return casifyObject(caseFn, collection);
 }
 
-function casifyFnFactory(caseFn) {
-  return collection => casify(caseFn, collection);
+function casifyFnFactory(caseFn: CaseFn) {
+  return (collection: Collection) => casify(caseFn, collection);
 }
 
-function bumpyCase(input) {
+function bumpyCase(input: string) {
   return upperfirst(camelCase(input));
 }
 

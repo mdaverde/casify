@@ -1,4 +1,3 @@
-import test from 'ava';
 import {
   default as casify,
   camelCasify,
@@ -10,9 +9,8 @@ import {
   lowerCasify,
 } from './dist';
 
-// Test Utils
-
-function generateObject(obj, fn, re) {
+// Test utils
+function generateObject(obj: object, fn: Function, re: RegExp) {
   return {
     snake_case: true,
     'kebab-case': 1000,
@@ -33,14 +31,12 @@ function generateArray() {
 }
 
 
-function prependBlueCase(string) {
-  return `blue_${string}`;
+function prependBlueCase(input: string) {
+  return `blue_${input}`;
 }
 
 
-// Tests
-
-test('camelCasify - handles objects', (context) => {
+it('camelCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -59,10 +55,10 @@ test('camelCasify - handles objects', (context) => {
 
   const observed = camelCasify(input);
 
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('bumpyCasify - handles objects', (context) => {
+it('bumpyCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -81,10 +77,10 @@ test('bumpyCasify - handles objects', (context) => {
 
   const observed = bumpyCasify(input);
 
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('kebabCasify - handles objects', (context) => {
+it('kebabCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -103,10 +99,10 @@ test('kebabCasify - handles objects', (context) => {
 
   const observed = kebabCasify(input);
 
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('snakeCasify - handles objects', (context) => {
+it('snakeCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -124,11 +120,10 @@ test('snakeCasify - handles objects', (context) => {
   };
 
   const observed = snakeCasify(input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('startCasify - handles objects', (context) => {
+it('startCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -146,11 +141,10 @@ test('startCasify - handles objects', (context) => {
   };
 
   const observed = startCasify(input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('upperCasify - handles objects', (context) => {
+it('upperCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -168,11 +162,10 @@ test('upperCasify - handles objects', (context) => {
   };
 
   const observed = upperCasify(input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('lowerCasify - handles objects', (context) => {
+it('lowerCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -190,11 +183,10 @@ test('lowerCasify - handles objects', (context) => {
   };
 
   const observed = lowerCasify(input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
-test('casify - handles objects', (context) => {
+it('casify - handles objects', () => {
   const obj = {};
   const fn = () => {};
   const re = /casify/ig;
@@ -212,12 +204,11 @@ test('casify - handles objects', (context) => {
   };
 
   const observed = casify(prependBlueCase, input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
 
 
-test('camelCasify - handles arrays', (context) => {
+it('camelCasify - handles arrays', () => {
   const input = generateArray();
 
   const expected = [
@@ -227,6 +218,6 @@ test('camelCasify - handles arrays', (context) => {
   ];
 
   const observed = camelCasify(input);
-
-  context.deepEqual(expected, observed);
+  expect(expected).toEqual(observed);
 });
+
