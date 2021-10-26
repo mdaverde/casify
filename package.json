@@ -59,11 +59,12 @@
   ],
   "author": {
     "name": "Milan",
-    "email": "hey@mdaverde.com",
+    "email": "milan@mdaverde.com",
     "url": "https://mdaverde.com"
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.lowercase": "^4.3.6",
