@@ -1,3 +1,4 @@
+name: build
 on:
   push:
     branches: [main, dev]
@@ -6,11 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
         node-version: [10.x, 12.x, 14.x, 16.x, 17.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
