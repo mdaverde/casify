@@ -1,4 +1,4 @@
-# casify [![Build Status](https://travis-ci.org/mdaverde/casify.svg?branch=master)](https://travis-ci.org/mdaverde/casify) [![npm downloads](https://badgen.net/npm/dt/casify)](https://www.npmjs.com/package/casify)
+# casify [![npm downloads](https://badgen.net/npm/dt/casify)](https://www.npmjs.com/package/casify)
 
 > Converts object keys or array of objects' keys to different case styles. Returns shallow copy of objects.
 
