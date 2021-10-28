@@ -7,6 +7,7 @@ import {
   startCasify,
   upperCasify,
   lowerCasify,
+  snakeUpperCasify,
 } from './dist';
 
 // Test utils
@@ -30,16 +31,14 @@ function generateArray() {
   ];
 }
 
-
 function prependBlueCase(input: string) {
   return `blue_${input}`;
 }
 
-
 it('camelCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -61,7 +60,7 @@ it('camelCasify - handles objects', () => {
 it('bumpyCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -83,7 +82,7 @@ it('bumpyCasify - handles objects', () => {
 it('kebabCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -105,7 +104,7 @@ it('kebabCasify - handles objects', () => {
 it('snakeCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -126,7 +125,7 @@ it('snakeCasify - handles objects', () => {
 it('startCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -147,7 +146,7 @@ it('startCasify - handles objects', () => {
 it('upperCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -168,7 +167,7 @@ it('upperCasify - handles objects', () => {
 it('lowerCasify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -186,10 +185,32 @@ it('lowerCasify - handles objects', () => {
   expect(expected).toEqual(observed);
 });
 
+it('snakeUpperCasify - handles objects', () => {
+  const obj = {};
+  const fn = () => {};
+  const re = /casify/gi;
+
+  const input = generateObject(obj, fn, re);
+
+  const expected = {
+    SNAKE_CASE: true,
+    KEBAB_CASE: 1000,
+    CAMEL_CASE: 'camelCase',
+    BUMPY_CASE: 11.99,
+    START_CASE: obj,
+    UPPER_CASE: fn,
+    LOWER_CASE: re,
+  };
+
+  const observed = snakeUpperCasify(input);
+
+  expect(expected).toEqual(observed);
+});
+
 it('casify - handles objects', () => {
   const obj = {};
   const fn = () => {};
-  const re = /casify/ig;
+  const re = /casify/gi;
 
   const input = generateObject(obj, fn, re);
 
@@ -207,7 +228,6 @@ it('casify - handles objects', () => {
   expect(expected).toEqual(observed);
 });
 
-
 it('camelCasify - handles arrays', () => {
   const input = generateArray();
 
@@ -220,4 +240,3 @@ it('camelCasify - handles arrays', () => {
   const observed = camelCasify(input);
   expect(expected).toEqual(observed);
 });
-

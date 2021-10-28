@@ -8,7 +8,7 @@ import uppercase from 'lodash.uppercase';
 import lowercase from 'lodash.lowercase';
 import upperfirst from 'lodash.upperfirst';
 
-type Collection = Record<any, any>
+type Collection = Record<any, any>;
 type CaseFn = (input: string) => string;
 
 function casifyObject<T>(caseFn: CaseFn, obj: Collection): Collection {
@@ -16,7 +16,7 @@ function casifyObject<T>(caseFn: CaseFn, obj: Collection): Collection {
 }
 
 function casifyArray<T>(caseFn: CaseFn, array: Array<T>): Array<T> {
-  return map(array, obj => casifyObject(caseFn, obj));
+  return map(array, (obj) => casifyObject(caseFn, obj));
 }
 
 function casify(caseFn: CaseFn, collection: Collection) {
@@ -32,6 +32,10 @@ function bumpyCase(input: string) {
   return upperfirst(camelCase(input));
 }
 
+function snakeUpperCase(input: string) {
+  return snakeCase(input).toUpperCase();
+}
+
 export const camelCasify = casifyFnFactory(camelCase);
 export const bumpyCasify = casifyFnFactory(bumpyCase);
 export const kebabCasify = casifyFnFactory(kebabCase);
@@ -39,5 +43,6 @@ export const snakeCasify = casifyFnFactory(snakeCase);
 export const startCasify = casifyFnFactory(startCase);
 export const upperCasify = casifyFnFactory(uppercase);
 export const lowerCasify = casifyFnFactory(lowercase);
+export const snakeUpperCasify = casifyFnFactory(snakeUpperCase);
 
 export default casify;
